@@ -13,6 +13,92 @@
         .button:hover{ border-color:#966; color:#966 }
         #play{ width:40px; }
         #volume{ width:75px; vertical-align:bottom; }
+
+        .player{
+        position: relative;
+        top: 70px;
+        }
+        .btnpp{
+        border:1px solid #a1a1a1;
+        height: 14px;
+        width:14px;
+        position: relative;
+        }
+
+        .btnstatus{
+        border:1px solid #a1a1a1;
+        background-color: rgb(235, 240, 245);
+        height: 12px;
+        width:6px;
+        position: relative;
+        top: -43px;
+        border-radius:6px;
+        }
+
+        .backpro{
+        height: 16px;
+        width:400px;
+        border-radius:60px;
+        position: relative;
+        top: -15px;
+        }
+
+        .proback{
+        height: 10px;
+        width: 396px;
+        background-color: #455;
+        border:2px solid #a1a1a1;
+        border-radius:10px;
+        }
+
+        .profront1{
+        height: 10px;
+        width: 0px;
+        background-color: #2DA3FF;
+        position: relative;
+        border-radius:4.5px 0px 0px 5px;
+        left: 2px;
+        top: -12px;
+        }
+
+        .profront2{
+        height: 10px;
+        width: 96px;
+        background-color: #3F5;
+        border-radius:3px;
+        position: relative;
+        top: -22px;
+        visibility: hidden;
+        }
+        .kuohaoa{
+        border-left: 6px solid #3FF;
+        border-top: 6px solid transparent;
+        border-bottom: 6px solid transparent;
+        position: relative;
+        top: -30px;
+        left: 30px;
+        visibility: hidden;
+        }
+
+        .kuohaob{
+        border-right: 6px solid #3FF;
+        border-top: 6px solid transparent;
+        border-bottom: 6px solid transparent;
+        position: relative;
+        top: -42px;
+        left: 60;
+        visibility: hidden;
+        }
+
+        .kuohaob{
+        float:left;
+        }
+
+        .progress{
+        position: relative;
+        top: 45px;
+        }
+
     </style>
 </head>
 <body>
@@ -23,8 +109,21 @@
         <a id="play" class="button" href="###">bun</a>
         音量：<input id="volume" type="range" min="0" max="1" step="any" vaule="0.5">
     </div>
+
+    <div class="progress">
+        <div class="backpro">
+            <div id="proback" class="proback"></div>
+            <div id="profront1" class="profront1"></div>
+            <div id="profront2" class="profront2"></div>
+        </div>
+        <div class="kuohao">
+            <div id="kuohaoa" class="kuohaoa"></div>
+            <div id="kuohaob" class="kuohaob"></div>
+        </div>
+        <div id="btnstatus" class="btnstatus"></div>
+    </div>
 </body>
-<script type="text/javascript" src="js/audio.js"></script>
+<script type="text/javascript" src="js/ap.js"></script>
 </html>
 
 
