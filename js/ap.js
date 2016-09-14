@@ -147,30 +147,36 @@ function hotkey()
     var a=window.event.keyCode;
     console.info(a);
     if(a==32){
+        // 'space'
         onPlayButtonClick()
     }else if(a==188){
+        // '<'
         audioEl.currentTime -= 6;
     }else if(a==219){
+        // '['
         posa = audioEl.currentTime,
         kuoa.style.visibility = "inherit";
         kuowidth = pro1.style.width;
         kuoa.style.left = kuowidth;
     }else if(a==221){
+        // ']'
         posb = audioEl.currentTime,
         kuob.style.visibility = "inherit";
         kuowidth = pro1.style.width;
         kuob.style.left = kuowidth;
         audioEl.currentTime = posa;
     }else if(a==220){
+        // '\'
         dora = audioEl.duration,
         kuoa.style.visibility = "hidden";
         kuob.style.visibility = "hidden";
         posb = dora + 10;
+        posa = 0
     }
     // if((a==65)&&(event.ctrlKey)){
     //     alert("你按了ctrl+a键吧");
     // }
-}// end hotkey
+}
 
 document.onkeydown = hotkey; //当onkeydown 事件发生时调用hotkey函数
 initAudio();
