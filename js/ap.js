@@ -8,6 +8,8 @@ var audioEl,
     pro2,
     kuoa,
     kuob,
+    recordtime,
+    intlock,
     volumeEl;
 
 var posa,
@@ -120,6 +122,7 @@ function onRangeChange(){
 }
 
 function onPlayButtonClick(){
+    intlock = setInterval("clock()",1000)
      if(!audioEl){ return; }
      if(audioEl.error){
          return;
@@ -146,12 +149,21 @@ function hotkey()
 {
     var a=window.event.keyCode;
     console.info(a);
-    if(a==32){
+    if((a==188)&&(event.ctrlKey)){
+        // 'alt + <'
+        audioEl.currentTime -= 30;
+    }else if((a==190)&&(event.ctrlKey)){
+        // 'alt + <-'
+        audioEl.currentTime += 30;
+    }else if(a==32){
         // 'space'
         onPlayButtonClick()
-    }else if(a==188){
+    }else if((a==188) || (a==37)){
         // '<'
         audioEl.currentTime -= 6;
+    }else if((a==190) || (a==39)){
+        // '<'
+        audioEl.currentTime += 6;
     }else if(a==219){
         // '['
         posa = audioEl.currentTime,
@@ -173,9 +185,24 @@ function hotkey()
         posb = dora + 10;
         posa = 0
     }
-    // if((a==65)&&(event.ctrlKey)){
-    //     alert("你按了ctrl+a键吧");
-    // }
+
+    if((a==65)&&(event.altKey)){
+        alert("你按了ctrl+a键吧");
+    }
+}
+
+function clock(){
+    recordtime += 1;
+    if notListening {
+        stoptime += 1;
+        if (stoptime >= 4*60) {
+            recordtime -= 4*60;
+            window.clearInterval(intlock);
+        }
+    }else {
+        stoptime = 0;
+    }
+
 }
 
 document.onkeydown = hotkey; //当onkeydown 事件发生时调用hotkey函数
